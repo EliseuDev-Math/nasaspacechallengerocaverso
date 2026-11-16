@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f4d2a">
+<title>AgroNASA – When should you plant?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="top"><div class="brand"><i>🛰️</i>AgroNASA</div><span class="pill">NASA satellite data</span></div>
+    <h1>Plant on the right day.</h1>
+    <p>See the best days of the month to plant, based on real climate data for your region.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card" aria-label="Find the best days">
+    <div class="step">
+      <h2>Where is your farm?</h2>
+      <button class="loc" id="loc" type="button">
+        <span class="ic">📍</span>
+        <span id="locTxt">Use my location<small>Tap to let your phone detect it</small></span>
+      </button>
+      <details class="manual">
+        <summary>I'd rather type the coordinates</summary>
+        <div>
+          <input id="lat" inputmode="decimal" placeholder="Latitude (-12.90)" aria-label="Latitude">
+          <input id="lon" inputmode="decimal" placeholder="Longitude (-38.50)" aria-label="Longitude">
+        </div>
+      </details>
+    </div>
+    <div class="step">
+      <h2>What will you plant?</h2>
+      <div class="row" id="chips"></div>
+    </div>
+    <div class="step" style="margin-bottom:0">
+      <h2>Which month?</h2>
+      <div class="row" id="months"></div>
+    </div>
+    <div id="status" role="status" aria-live="polite"></div>
+  </section>
+
+  <div id="res" hidden>
+    <section class="sec"><div class="best" id="best"></div></section>
+    <section class="sec"><h2>🏆 Best days</h2><div class="days" id="top"></div></section>
+    <section class="sec">
+      <h2>📅 The whole month</h2>
+      <div class="cal">
+        <div class="grid" id="cal"></div>
+        <div class="legend">
+          <span><i style="background:var(--dk)"></i>Excellent</span><span><i style="background:var(--md)"></i>Good</span>
+          <span><i style="background:var(--lt)"></i>Fair</span><span><i style="background:#e8eeea"></i>Avoid</span>
+        </div>
+        <div class="detail" id="detail"></div>
+      </div>
+    </section>
+    <section class="sec" id="recent"></section>
+    <p class="aviso" id="disclaimer"></p>
+  </div>
+</main>
+
+<div class="bar"><button class="go" id="go" type="button">Find the best days</button></div>
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
